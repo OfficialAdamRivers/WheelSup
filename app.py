@@ -1,3 +1,6 @@
+
+# WheelSup - One-File Flask Social App for Car Campers, Travelers, and Nomads
+
 from flask import Flask, render_template_string, request, redirect, url_for, session, send_from_directory
 import sqlite3, os, hashlib, uuid, datetime
 from werkzeug.utils import secure_filename
@@ -92,9 +95,9 @@ def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
 # ------------------- UI HTML -------------------
-REG_FORM = '''<!DOCTYPE html><html><body><h2>Register</h2><form method="post">Email: <input name="email"><br>Password: <input type="password" name="password"><br>Name: <input name="name"><br><button type="submit">Register</button></form></body></html>'''
+REG_FORM = '''<!DOCTYPE html><html><body><h2>Register</h2><form method="post">Email: <input name="email"><br>Password: <input type="password" name="password"><br>Name: <input name="name"><br><button type="submit">Register</button></form><br><a href='/login'>Already have an account? Login</a></body></html>'''
 
-LOGIN_FORM = '''<!DOCTYPE html><html><body><h2>Login</h2><form method="post">Email: <input name="email"><br>Password: <input type="password" name="password"><br><button type="submit">Login</button></form></body></html>'''
+LOGIN_FORM = '''<!DOCTYPE html><html><body><h2>Login</h2><form method="post">Email: <input name="email"><br>Password: <input type="password" name="password"><br><button type="submit">Login</button></form><br><a href='/register'>Need an account? Register</a></body></html>'''
 
 HOME_FEED = '''<!DOCTYPE html><html><body><h2>Welcome {{ user[1] }}</h2><a href="/logout">Logout</a>
 <form method="post" enctype="multipart/form-data">Share your adventure:<br><textarea name="content"></textarea><br><input type="file" name="image"><br><button type="submit">Post</button></form>
